@@ -8,7 +8,7 @@
 - For verifying if the JSON structure is the correct one I created a recursive method:  
 
 (The second one is the recursive one, the first one is just used to check the properties types)
-![isBinTree method](src/assets/img/isBinTree method.png)
+![isBinTree method](src/assets/img/isBinTreeMethod.png)
 
 ## Thought process
 For every solution I made I had to think recursively and use the dev tools debugger for really know how I was going to code.
