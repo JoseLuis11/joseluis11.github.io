@@ -140,19 +140,17 @@ export class AppComponent implements OnInit, DoCheck {
 
   getRect(binTree: BinTreeNode, parentProperties: { width, height }) {
     const g = this.getNode('g', {});
-    const text = this.getNode('text', { x: `${parentProperties.width / 2}`, y: `${30}`, 'font-family': 'Verdana', 'font-size': 16, fill: 'black', 'dominant-baseline': 'middle', 'text-anchor': 'middle' });
+    const text = this.getNode('text', { x: `${parentProperties.width / 2}`, y: `${30}`, 'font-family': 'Verdana', 'font-size': 16, fill: '#fff', 'dominant-baseline': 'middle', 'text-anchor': 'middle' });
     text.textContent = binTree.id;
-    const rectBorderColor = this.smallestSubTree !== binTree ? 'purple' : 'green';
+    const rectBorderColor = this.smallestSubTree !== binTree ? '#02bfe7' : '#4aa564';
 
     if (binTree.right || binTree.left) {
-      const bigRect = this.getNode('rect', { x: 5, y: 40, width: parentProperties.width - 10, height: parentProperties.height - 55, fill: '#fff', 'stroke-width': 2, stroke: 'rgb(183,153,52)' });
-      console.log('smallest', this.smallestSubTree);
-      console.log('current', binTree);
-      const rect = this.getNode('rect', { x: 0, y: 20, width: parentProperties.width, height: parentProperties.height - 30, fill: '#fff', 'stroke-width': 2, stroke: rectBorderColor });
+      const bigRect = this.getNode('rect', { x: 5, y: 40, width: parentProperties.width - 10, height: parentProperties.height - 55, fill: '#5b616b', 'stroke-width': 3, stroke: '#f9c642', rx: 5, ry: 5 });
+      const rect = this.getNode('rect', { x: 0, y: 20, width: parentProperties.width, height: parentProperties.height - 30, fill: '#5b616b', 'stroke-width': 3, stroke: rectBorderColor, rx: 5, ry: 5 });
       g.appendChild(rect);
       g.appendChild(bigRect);
     } else {
-      const rect = this.getNode('rect', { x: 0, y: 20, width: parentProperties.width, height: 40, fill: '#fff', 'stroke-width': 2, stroke: rectBorderColor });
+      const rect = this.getNode('rect', { x: 0, y: 20, width: parentProperties.width, height: 40, fill: '#5b616b', 'stroke-width': 3, stroke: rectBorderColor, rx: 5, ry: 5 });
       g.appendChild(rect);
 
     }

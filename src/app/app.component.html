@@ -1,5 +1,5 @@
-<div class="app" style="padding-bottom: 100px">
-  <div class="tree-source" style="width: 600px">
+<div class="app">
+  <div class="tree-source">
     <h2>Tree Source</h2>
     <ngx-file-drop dropZoneLabel="Drop JSON file here" (onFileDrop)="fileDropped($event[0])"
                    [multiple]="false" accept=".text,.json">
@@ -8,10 +8,11 @@
         <button type="button" (click)="openFileSelector()">Browse Files</button>
       </ng-template>
     </ngx-file-drop>
+    <app-alert [message]="'File extension error: file extensions allowed: .text, .json'" [type]="alert.ERROR" *ngIf="error.fileType"></app-alert>
   </div>
   <div *ngIf="lastFiles.length > 0" class="last-used-files">
     <h3>Last used files:</h3>
-    <table>
+    <table class="styled-table">
       <tr>
         <th>Filename</th>
         <th>File Content</th>
@@ -28,15 +29,13 @@
   <div style="width: 100%">
     <div class="tree-text">
       <h2>Tree Text</h2>
-      <ngx-monaco-editor style="height: 400px; width: 600px" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
       <app-alert [message]="'Syntax Error: check the editor for errors (marked with red underlined)'" [type]="alert.ERROR" *ngIf="error.syntaxError"></app-alert>
       <app-alert [message]="'Property type error: check the entries of each object property'" [type]="alert.ERROR" *ngIf="error.entryTypeError"></app-alert>
+      <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
     </div>
     <div class="output">
       <h2>Output</h2>
       <svg #svgContainer width="1" height="1"></svg>
     </div>
   </div>
-
-  <router-outlet style="margin-top: 2000px"></router-outlet>
 </div>

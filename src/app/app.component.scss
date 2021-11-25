@@ -1,31 +1,90 @@
 :host {
   padding-bottom: 200px;
+  font-family: Helvetica, sans-serif;
 
-  table, th, td {
-    border: 2px solid black;
-  }
-  table {
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
+
+    thead tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px 15px;
+    }
+
+    th {
+      text-align: start;
+    }
+
+    tr {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    tr:last-of-type {
+      border-bottom: 2px solid #0071bc;
+    }
   }
+
   td:not(:last-child), th:not(:last-child) {
     padding:0 20px 0 0;
   }
 
-  th {
-    text-align: start;
-  }
-
   .last-used-files {
-    padding-left: 20px;
+    padding-left: 150px;
+    @media (max-width: 600px) {
+      padding-left: 0;
+    }
   }
 
   .tree-source, .last-used-files, .tree-text, .output {
     display: inline-block;
     width: 50%;
     vertical-align: top;
+
+    @media (max-width: 600px) {
+      display: block;
+    }
+  }
+
+  .tree-source {
+    width: 100%;
+    max-width: 600px
   }
 
   p {
     margin-right: 10px;
   }
+
+  ngx-monaco-editor {
+    height: 400px;
+    width: 600px;
+  }
+
+  ngx-file-drop {
+    div.ngx-file-drop__drop-zone {
+      border: 2px solid #0071bc !important;
+    }
+  }
+
+  button {
+    background-color: #0071bc;
+    border: #0071bc 2px solid;
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 5px;
+  }
+
 }
