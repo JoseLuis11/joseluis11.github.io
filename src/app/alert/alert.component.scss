@@ -1,0 +1,12 @@
+.alert {
+  color: #212121;
+  max-width: 581px;
+  padding: 10px;
+  &__message {
+    color: #212121;
+  }
+
+  &--error {
+    background-color: #f9dede ;
+  }
+}

@@ -1,0 +1,31 @@
+:host {
+  padding-bottom: 200px;
+
+  table, th, td {
+    border: 2px solid black;
+  }
+  table {
+    border-radius: 5px;
+  }
+  td:not(:last-child), th:not(:last-child) {
+    padding:0 20px 0 0;
+  }
+
+  th {
+    text-align: start;
+  }
+
+  .last-used-files {
+    padding-left: 20px;
+  }
+
+  .tree-source, .last-used-files, .tree-text, .output {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+  }
+
+  p {
+    margin-right: 10px;
+  }
+}
